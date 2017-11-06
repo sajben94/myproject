@@ -1,0 +1,7 @@
+h1{
+  color:red;
+}
+
+tr {display: block; }
+th, td { width: 300px; }
+tbody { display: block; height: 600px; overflow: auto;} 

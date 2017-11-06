@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <form method="POST">
+        <div class="form-group row">
+          {% for f in form %}
+          {% if f.errors %}
+          <div class="has-errors text-danger alert alert-danger">
+            {{f.errors}}
+          </div>
+          {% endif %}
+          {% endfor %}
+          {% for field in form %}
+          <div class="col-xs-4">
+            {{ field }}
+          </div>
+          {% endfor %}
+        </div>
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary">
+      </form>
+    </div>
+      {% if message %}
+        <table class="table table-striped">
+          <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Edit</th>
+          </tr>
+          {% for user in message %}
+            <tr>
+              <td>{{ user.first_name }}</td>
+              <td>{{ user.last_name }}</td>
+              <td>{{ user.email }}</td>
+              <td>
+                <a href="#" class="btn btn-danger">Delete</a>
+                <a href="#" class="btn btn-warning">Edit</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+      {% else %}
+        <p>No user</p>
+      {% endif %}
+  </div>
+</body>
+</html>
