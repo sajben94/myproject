@@ -25,7 +25,7 @@ SECRET_KEY = 'zu@*qn)_0@&gxn-y69jq(+$4&s)g#-n1tra-js%wix1=@5p%1r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['darkosajben.tk',]
 
 
 # Application definition
