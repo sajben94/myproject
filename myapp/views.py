@@ -20,6 +20,7 @@ def form_name_view(request):
     if request.method == 'POST':
         form = forms.FormName(request.POST)
         if form.is_valid():
+
             #DO SOMETHING Code
             print('VALIDATION SUCCESS!')
             first_name = form.cleaned_data['first_name']
@@ -29,6 +30,8 @@ def form_name_view(request):
                                                last_name=last_name,
                                                email=email)[0]
             form = forms.FormName() #return emply form
+
+
 
     return render(request,'myapp/form_page.html',{'form':form,'message':users_list})
 
