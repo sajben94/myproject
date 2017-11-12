@@ -20,9 +20,7 @@ def form_name_view(request):
     if request.method == 'POST':
         form = forms.FormName(request.POST)
         if form.is_valid():
-
-            #DO SOMETHING Code
-            print('VALIDATION SUCCESS!')
+            id = form.cleaned_data['id']
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
             email = form.cleaned_data['email']
@@ -35,7 +33,11 @@ def form_name_view(request):
 
     return render(request,'myapp/form_page.html',{'form':form,'message':users_list})
 
-
+def user_delete(request, id=None):
+    print("Ty som prisol")
+    instance = Users.objects.filter(id=id)
+    instance.delete()
+    return render(request,'myapp/form_page.html')
 
 def form_users_views(request):
     form = forms.FormUser()

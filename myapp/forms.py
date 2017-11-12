@@ -5,7 +5,7 @@ from myapp.models import Users
 
 def check_email(value):
     if Users.objects.filter(email=value):
-        raise forms.ValidationError('You can\'t use this email address.')
+        raise forms.ValidationError('You can not use this email address.')
 
 class FormName(forms.Form):
     first_name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'First name'}),

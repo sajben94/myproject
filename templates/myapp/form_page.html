@@ -38,6 +38,7 @@
       {% if message %}
         <table class="table table-striped">
           <tr>
+            <th>id</th>
             <th>First name</th>
             <th>Last name</th>
             <th>Email</th>
@@ -45,6 +46,7 @@
           </tr>
           {% for user in message %}
             <tr>
+              <td>{{ user.id }}</td>
               <td>{{ user.first_name }}</td>
               <td>{{ user.last_name }}</td>
               <td>{{ user.email }}</td>
