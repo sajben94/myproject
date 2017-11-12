@@ -13,6 +13,9 @@ def help(request):
     help_dict = {'help_msg':'This is help page!'}
     return render(request,'myapp/help.html',context=help_dict)
 
+def home_default(request):
+    return render(request,"myapp/index_mp_fullscreen_video_background.html")
+
 def form_name_view(request):
     form = forms.FormName()
     users_list = Users.objects.order_by('-id')
