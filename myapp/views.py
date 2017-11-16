@@ -16,6 +16,9 @@ def help(request):
 def home_default(request):
     return render(request,"myapp/index_mp_fullscreen_video_background.html")
 
+def home_one_page(request):
+    return render(request,"myapp/index_op_fullscreen_gradient_overlay.html")
+
 def form_name_view(request):
     form = forms.FormName()
     users_list = Users.objects.order_by('-id')
